@@ -1,0 +1,239 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #ade8f4;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: space-between; /* Ruimte tussen de titel en de rest */
+    align-items: center; /* Verticaal centreren */
+    padding: 10px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Gebruik flexbox om de links naast elkaar te plaatsen */
+    gap: 20px; /* Voeg ruimte tussen de links toe */
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0077b6;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Auth Buttons Styling */
+.auth-buttons {
+    display: flex;
+    gap: 10px; /* Ruimte tussen de knoppen */
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.become-dogsitter-button {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: #e88aad; /* Roze kleur */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.become-dogsitter-button:hover {
+    background-color: #e88aad; /* Donkerder roze bij hover */
+}
+.auth-buttons .login-button {
+    background-color: #0077b6;
+}
+
+.auth-buttons .signup-button {
+    background-color: #28a745;
+}
+
+.auth-buttons a:hover {
+    opacity: 0.9; /* Maak knoppen een beetje transparanter bij hover */
+}
+.go-back {
+    margin: 20px;
+    text-align: left;
+}
+
+.go-back-button {
+    margin-left: 0.52cm;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #0077b6;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.go-back-button:hover {
+    background-color: #005f8d;
+}
+/* Voor kleine schermen zoals mobiele apparaten */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px; /* Kleiner lettertype voor kleine schermen */
+    }
+
+    h1 {
+        font-size: 5vw; /* Past de grootte van h1 aan op basis van de schermbreedte */
+    }
+    
+    p {
+        font-size: 2vw;
+    }    
+}
+
+/* Voor middelgrote schermen zoals tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Iets groter lettertype voor tablets */
+    }
+
+    h1 {
+        font-size: 5vw; /* Past de grootte van h1 aan op basis van de schermbreedte */
+    }
+    
+    p {
+        font-size: 2vw;
+    }    
+}
+
+/* Form Styling */
+form {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f7fbfd; /* Slightly lighter blue */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Modern shadow effect */
+}
+
+form label {
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="time"],
+form input[type="date"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px; /* Better padding */
+    font-size: 16px; /* Slightly larger font size */
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9; /* Subtle background for inputs */
+}
+
+form input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+form button {
+    background-color: #0077b6; /* Match navigation styling */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #005f8d; /* Slightly darker blue on hover */
+}
+
+/* Button Styling */
+.view-all-reviews-button a {
+    text-decoration: none;
+    color: white;
+    background-color: #0077b6; /* Consistent with other buttons */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.view-all-reviews-button a:hover {
+    background-color: #005f8d; /* Darker blue for hover effect */
+}
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 2.5rem;
+    color: #0077b6;
+    font-weight: bold;
+    border-bottom: 2px solid #0077b6; /* Add a bottom border for emphasis */
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* Star Rating Styling */
+.star-rating {
+    display: flex;
+    justify-content: center; /* Center the stars */
+    flex-direction: row-reverse;
+}
+
+.star-rating input {
+    display: none; /* Hide the radio buttons */
+}
+
+.star-rating label {
+    font-size: 2rem; /* Size of the stars */
+    color: #ccc; /* Light gray color for unselected stars */
+    cursor: pointer;
+    padding: 0 5px; /* Adds space between stars */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.star-rating input:hover ~ label,
+.star-rating input:hover + label {
+    color: #ffd700; /* Gold color for hover */
+}
+
+.star-rating input:checked ~ input + label,
+.star-rating input:checked + label {
+    color: #ffd700; /* Gold color for selected stars */
+}
+

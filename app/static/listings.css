@@ -1,0 +1,56 @@
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 3px solid #0077b6;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #0077b6;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.btn-secondary {
+    background-color: #0077b6;
+    color: white;
+    border: none;
+}
+
+h1.text-center {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+.go-back {
+    margin: 20px;
+    text-align: left;
+}
+
+.go-back-button {
+    text-decoration: none;
+    color: white;
+    background-color: #0077b6;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.go-back-button:hover {
+    background-color: #005f8d;
+}

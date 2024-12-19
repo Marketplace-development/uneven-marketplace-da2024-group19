@@ -1,0 +1,335 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+/* Header Styling */
+.header {
+    background-color: #ade8f4;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: space-between; /* Ruimte tussen de titel en de rest */
+    align-items: center; /* Verticaal centreren */
+    padding: 10px 20px;
+}
+.extra-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px; /* Pas dit aan naar wens */
+    text-align: center;
+}
+
+.extra-options p {
+    margin: 0;
+}
+
+.extra-options a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Gebruik flexbox om de links naast elkaar te plaatsen */
+    gap: 20px; /* Voeg ruimte tussen de links toe */
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0077b6;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Auth Buttons Styling */
+.auth-buttons {
+    display: flex;
+    gap: 10px; /* Ruimte tussen de knoppen */
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.auth-buttons .login-button {
+    background-color: #0077b6;
+}
+
+.auth-buttons .signup-button {
+    background-color: #28a745;
+}
+
+.auth-buttons a:hover {
+    opacity: 0.9; /* Maak knoppen een beetje transparanter bij hover */
+}
+
+/* Login Page Styling */
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0077b6;
+    margin-bottom: 20px;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Algemene stijl voor inputvelden */
+.login-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Knopstijl */
+.login-container button {
+    padding: 10px;
+    background-color: #0077b6;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #005f99;
+}
+
+/* Informatie en links */
+.login-container p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login-container a {
+    color: #0077b6;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* Styling voor de footer en extra informatie */
+.login-container .go-back {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-container .go-back-button {
+    text-decoration: none;
+    color: white;
+    background-color: #0077b6; /* Zelfde blauw als in About Us pagina */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-container .go-back-button:hover {
+    background-color: #005f8d; /* Donkerder blauw bij hover */
+}
+
+/* Voor kleine schermen zoals mobiele apparaten */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px; /* Kleiner lettertype voor kleine schermen */
+    }
+
+    h1 {
+        font-size: 5vw; /* Past de grootte van h1 aan op basis van de schermbreedte */
+    }
+    
+    p {
+        font-size: 2vw;
+    }    
+}
+
+/* Voor middelgrote schermen zoals tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Iets groter lettertype voor tablets */
+    }
+
+    h1 {
+        font-size: 5vw; /* Past de grootte van h1 aan op basis van de schermbreedte */
+    }
+    
+    p {
+        font-size: 2vw;
+    }    
+}
+
+/* Voor grotere schermen blijft de standaardgrootte */
+body {
+    font-size: 18px; /* Standaardgrootte */
+}
+
+
+/* Informatie en links */
+.login-container p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login-container a {
+    color: #0077b6;
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+* Styling voor de footer en extra informatie */
+.login-container .go-back {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-container .go-back-button {
+    text-decoration: none;
+    color: white;
+    background-color: #0077b6; /* Zelfde blauw als in About Us pagina */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-container .go-back-button:hover {
+    background-color: #005f8d; /* Donkerder blauw bij hover */
+}
+
+/* Voor kleine schermen zoals mobiele apparaten */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px; /* Kleiner lettertype voor kleine schermen */
+    }
+
+    h1 {
+        font-size: 5vw; /* Past de grootte van h1 aan op basis van de schermbreedte */
+    }
+    
+    p {
+        font-size: 2vw;
+    }    
+}
+
+/* Voor middelgrote schermen zoals tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Iets groter lettertype voor tablets */
+    }
+
+    h1 {
+        font-size: 5vw; /* Past de grootte van h1 aan op basis van de schermbreedte */
+    }
+    
+    p {
+        font-size: 2vw;
+    }    
+}
+
+/* Voor grotere schermen blijft de standaardgrootte */
+body {
+    font-size: 18px; /* Standaardgrootte */
+}
+.extra-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px; /* Pas dit aan naar wens */
+    text-align: center;
+}
+
+.extra-options p {
+    margin: 0;
+}
+
+.extra-options a {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.logout-container {
+    position: absolute;
+    top: 10px; /* Afstand vanaf de bovenkant */
+    right: 20px; /* Afstand vanaf de rechterkant */
+}
+
+.logout-container .btn {
+    display: inline-block;
+    background-color: #007bff; /* Blauw, aanpasbaar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-container .btn:hover {
+    background-color: #0056b3; /* Donkerder blauw bij hover */
+}
