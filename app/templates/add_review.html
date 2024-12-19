@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add review - Woofwatchers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Hoofdpagina styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_review.css') }}"> <!-- Specifieke About-page styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+    
+<body>
+    <!-- Header Sectie -->
+    <header class="header">
+        <nav class="container navbar navbar-expand-lg navbar-light">
+            <!-- Link naar de beginpagina -->
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Woofwatchers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.services') }}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.bookings') }}">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.reviews') }}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.about') }}">About Us</a></li>
+                </ul>
+                <div class="d-flex gap-2 ms-lg-3">
+                    <a href="{{ url_for('main.dogsitter_form') }}" class="dogsitter-button">Become a Dogsitter</a>
+                    <a href="{{ url_for('main.login') }}" class="btn btn-outline-primary btn-sm">Login</a>
+                    <a href="/signup" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Go Back Button -->
+    <div class="go-back">
+        <a href="{{ url_for('main.index') }}" class="go-back-button">← Go Back to Home</a>
+    </div>
+
+    <h2>Add a Review</h2>
+
+    <form method="POST" action="{{ url_for('main.add_review') }}" enctype="multipart/form-data">
+        <!-- Select the user to review -->
+        <label for="reviewed_listing_id">Select User to Review:</label>
+        <select id="reviewed_listing_id" name="reviewed_listing_id" required>
+            {% for listing in listings %}
+                <option value="{{ listing.id }}">{{ listing.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <!-- Rating (score) input -->
+        <label for="score">Rating (1-5):</label>
+        <input type="number" id="score" name="score" min="1" max="5" required>
+        <br><br>
+
+        <!-- Comment input -->
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="4" cols="50" placeholder="Write your comment here..."></textarea>
+        <br><br>
+
+        <div class="form-buttons">
+            <button type="submit" class="submit-button">Submit Review</button>
+            <a href="/reviews" class="view-button">View All Reviews</a>
+        </div>
+</form>
+
+    <!-- Navigation link to view all reviews -->
+    
+    
+<style>
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center
+}
+
+.header {
+    background-color: #ade8f4;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    justify-content: space-between; /* Ruimte tussen de titel en de rest */
+    align-items: center; /* Verticaal centreren */
+    padding: 10px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Gebruik flexbox om de links naast elkaar te plaatsen */
+    gap: 20px; /* Voeg ruimte tussen de links toe */
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #0077b6;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Auth Buttons Styling */
+.auth-buttons {
+    display: flex;
+    gap: 10px; /* Ruimte tussen de knoppen */
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.become-dogsitter-button {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: #e88aad; /* Roze kleur */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.become-dogsitter-button:hover {
+    background-color: #e88aad; /* Donkerder roze bij hover */
+}
+.auth-buttons .login-button {
+    background-color: #0077b6;
+}
+
+.auth-buttons .signup-button {
+    background-color: #28a745;
+}
+
+.auth-buttons a:hover {
+    opacity: 0.9; /* Maak knoppen een beetje transparanter bij hover */
+}
+.go-back {
+    margin: 20px;
+    text-align: left;
+}
+
+.go-back-button {
+    margin-left: 0.52cm;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #0077b6;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.go-back-button:hover {
+    background-color: #005f8d;
+}
+/* Voor kleine schermen zoals mobiele apparaten */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px; /* Kleiner lettertype voor kleine schermen */
+    }
+
+    h1 {
+        font-size: 5vw; /* Past de grootte van h1 aan op basis van de schermbreedte */
+    }
+    
+    p {
+        font-size: 2vw;
+    }    
+}
+
+/* Voor middelgrote schermen zoals tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Iets groter lettertype voor tablets */
+    }
+
+    h1 {
+        font-size: 5vw; /* Past de grootte van h1 aan op basis van de schermbreedte */
+    }
+    
+    p {
+        font-size: 2vw;
+    }    
+}
+
+
+/* Algemene formulierstijl */
+form {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ade8f4;
+}
+
+form h2 {
+    text-align: center;
+    color: #0077b6;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+form select, 
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Rating sterren */
+.rating {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.rating input {
+    display: none; /* Verberg de radio-buttons */
+}
+
+.rating label {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: gold; /* Sterren geel maken */
+}
+
+/* Knoppen naast elkaar */
+.form-buttons {
+    display: flex;
+    justify-content: space-between; /* Zorgt voor ruimte tussen de knoppen */
+    gap: 10px;
+}
+
+.form-buttons .submit-button,
+.form-buttons .view-button {
+    flex: 1; /* Zorgt ervoor dat de knoppen even breed zijn */
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.submit-button:hover {
+    background-color: #218838; /* Donkerder groen */
+}
+
+.view-button {
+    background-color: #0077b6;
+    color: white;
+    text-decoration: none;
+}
+
+.view-button:hover {
+    background-color: #005f8d; /* Donkerder blauw */
+}
+
+</style>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

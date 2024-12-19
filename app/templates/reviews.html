@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Woofwatchers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='reviews.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="container navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Woofwatchers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.services') }}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.bookings') }}">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.reviews') }}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.about') }}">About Us</a></li>
+                </ul>
+                <div class="d-flex gap-2 ms-lg-3">
+                    <a href="{{ url_for('main.dogsitter_form') }}" class="dogsitter-button">Become a Dogsitter</a>
+                    <a href="{{ url_for('main.login') }}" class="btn btn-outline-primary btn-sm">Login</a>
+                    <a href="/signup" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Go Back Button -->
+    <div class="go-back">
+        <a href="{{ url_for('main.index') }}" class="go-back-button">← Go Back to Home</a>
+    </div>
+    <section class="reviews">
+        <h1>All Reviews</h1>
+        <a href="{{ url_for('main.add_review') }}">
+            <button class="add-review-button">Add a Review</button>
+        </a>
+        <section class="padded-container">
+            {% if reviews %}
+                <!-- Use Bootstrap row to center the content -->
+                <div class="row justify-content-center">
+                    {% for review in reviews %}
+                        <div class="col-md-4 mb-4">
+                            <!-- Review card -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"> {{ review.listing_name |capitalize }}</h5>
+                                    <p class="card-text">
+                                        <strong>Rating:</strong> 
+                                        <!-- Display stars based on the review score -->
+                                        <div class="star-rating">
+                                            {% for i in range(5) %}
+                                                {% if i < review.score %}
+                                                    <span class="star filled">&#9733;</span>  <!-- Filled star -->
+                                                {% else %}
+                                                    <span class="star">&#9734;</span>  <!-- Empty star -->
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </p>
+                                    {% if review.comment %}
+                                        <p class="card-text">
+                                            <strong>Comment:</strong> {{ review.comment }}
+                                        </p>
+                                    {% endif %}
+                                    <p class="card-text">
+                                        <strong>Reviewed by:</strong> {{ review.reviewer.first_name | capitalize }} {{ review.reviewer.last_name | capitalize}}
+                                    </p>
+                                    <p class="card-text">
+                                        <strong>Reviewed on:</strong> {{ review.date_created.strftime('%B %d, %Y at %H:%M') }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No reviews available.</p>
+            {% endif %}
+        </section>
+    </section>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
