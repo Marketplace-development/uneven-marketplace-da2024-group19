@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daycare - Woofwatchers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='daycare.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="container navbar navbar-expand-lg navbar-light">
+            <!-- Link naar de beginpagina -->
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Woofwatchers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.services') }}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.bookings') }}">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.reviews') }}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.about') }}">About Us</a></li>
+                </ul>
+                <div class="d-flex gap-2 ms-lg-3">
+                    <a href="{{ url_for('main.dogsitter_form') }}" class="dogsitter-button">Become a Dogsitter</a>
+                    <a href="{{ url_for('main.login') }}" class="btn btn-outline-primary btn-sm">Login</a>
+                    <a href="/signup" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="go-back"></div>
+        <a href="{{ url_for('main.services') }}" class="go-back-button">← Go Back to Services</a>
+    </div>
+
+    <!-- Daycare Introduction Section -->
+    <section class="introduction container py-5">
+        <h2>Daycare: A Fun Place for Your Dog</h2>
+        <p>Need a safe and stimulating environment for your dog while you’re away? Our platform connects you with dog sitters who provide daycare services where your furry friend can socialize, play, and relax.</p>
+    </section>
+    <!-- What To Expect Section -->
+    <section class="what-to-expect container py-5">
+        <h3>What To Expect</h3>
+        <ul>
+            <li>Supervised playtime with other friendly dogs</li>
+            <li>Scheduled feeding and rest breaks</li>
+            <li>Toys, games and activities to keep your dog engaged</li>
+        </ul>
+    </section>
+    <!-- How To Book Section-->
+    <section class="how-to-book container py-5">
+        <h3>How To Book</h3>
+        <p>Select a reliable dog sitter through our platform, and arrange a daycare session that fits your schedule. Rest assured knowing your dog is in capable hands.</p>
+      </section>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

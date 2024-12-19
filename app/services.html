@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Woofwatchers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='services.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Header Sectie -->
+    <header class="header">
+        <nav class="container navbar navbar-expand-lg navbar-light">
+            <!-- Link naar de beginpagina -->
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Woofwatchers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.services') }}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.bookings') }}">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.reviews') }}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.about') }}">About Us</a></li>
+                </ul>
+                <div class="d-flex gap-2 ms-lg-3">
+                    <a href="{{ url_for('main.dogsitter_form') }}" class="dogsitter-button">Become a Dogsitter</a>
+                    <a href="{{ url_for('main.login') }}" class="btn btn-outline-primary btn-sm">Login</a>
+                    <a href="/signup" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="go-back"></div>
+        <a href="{{ url_for('main.index') }}" class="go-back-button">← Go Back to Home</a>
+    </div>
+    <!-- services section-->
+    <section class="services">
+        <h2>"Love and care, just a bark away!"</h2>
+        <div class="services-grid">
+            <div class="service">
+                <a href="{{ url_for('main.dog_walks') }}">
+                    <img src="{{ url_for('static', filename='images/dog_walks.jpg') }}" alt="Dog Walks">
+                    <h3>Dog Walks</h3>
+                </a>
+                <p>Does your dog need some exercise? Book a walk to keep them happy, healthy, and entertained!</p>
+            </div>
+            <div class="service">
+                <a href="{{ url_for('main.daycare') }}">
+                    <img src="{{ url_for('static', filename='images/daycare.jpg') }}" alt="Daycare">
+                    <h3>Daycare</h3>
+                </a>
+                <p>Need care for your pup while you’re out? We offer full-day daycare with personalized attention.</p>
+            </div>
+            <div class="service">
+                <a href="{{ url_for('main.overnight_stay') }}">
+                    <img src="{{ url_for('static', filename='images/overnight.jpg') }}" alt="Overnight Stay">
+                    <h3>Overnight Stay</h3>
+                </a>
+                <p>Safe and cozy overnight stays to give your furry friend a home away from home.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pictures">
+        <h2>Our Happy Guests</h2>
+        <div class="pictures-grid">
+            <img src="{{ url_for('static', filename='images/dog1.jpg') }}" alt="Dog 1">
+            <img src="{{ url_for('static', filename='images/dog2.jpg') }}" alt="Dog 2">
+            <img src="{{ url_for('static', filename='images/dog3.jpg') }}" alt="Dog 3">
+            <img src="{{ url_for('static', filename='images/dog5.jpg') }}" alt="Dog 5">
+            <img src="{{ url_for('static', filename='images/dog4.jpg') }}" alt="Dog 4">
+            <img src="{{ url_for('static', filename='images/dog6.jpg') }}" alt="Dog 6">
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

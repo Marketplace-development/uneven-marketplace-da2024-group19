@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woofwatchers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dogsitter_form.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Header Sectie -->
+    <header class="header">
+        <nav class="container navbar navbar-expand-lg navbar-light">
+            <!-- Link naar de beginpagina -->
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Woofwatchers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.services') }}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.bookings') }}">Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.reviews') }}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('main.about') }}">About Us</a></li>
+                </ul>
+                <div class="d-flex gap-2 ms-lg-3">
+                    <a href="{{ url_for('main.dogsitter_form') }}" class="dogsitter-button">Become a Dogsitter</a>
+                    <a href="{{ url_for('main.login') }}" class="btn btn-outline-primary btn-sm">Login</a>
+                    <a href="/signup" class="btn btn-primary btn-sm">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Go Back Button -->
+    <div class="go-back">
+        <a href="{{ url_for('main.index') }}" class="go-back-button">← Go Back to Home</a>
+    </div>
+    <!-- Dogsitter Form -->
+    <main>
+        <div class="center-content">
+        <h1>Become a Dogsitter</h1></div>
+        <form method="POST"  enctype="multipart/form-data">
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required><br>
+
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" min="18" max="99" required><br>
+
+            <label for="bio">Bio:</label>
+            <textarea name="bio" id="bio" required></textarea><br>
+
+            <label for="location">Location:</label>
+            <select name="location" id="location" required>
+                <option value="Antwerp">Antwerp</option>
+                <option value="East_Flanders">East Flanders</option>
+                <option value="Flemish_Brabant">Flemish Brabant</option>
+                <option value="Limburg">Limburg</option>
+                <option value="West_Flanders">West Flanders</option>
+            </select><br>
+
+            <label for="services">Services:</label>
+            <input type="checkbox" name="services" value="Dogwalks"> Dogwalks
+            <input type="checkbox" name="services" value="Daycare"> Daycare
+            <input type="checkbox" name="services" value="Overnight Stay"> Overnight Stay<br>
+
+            <!-- Optimal Price Suggestions -->
+<div class="container my-4">
+    <h3 class="text-center mb-4">Optimal Price Suggestions per Province</h3>
+    <div class="price-box-container">
+        {% for location, price in price_ranges.items() %}
+            <div class="price-box">
+                <h5>{{ location }}</h5>
+                <p><strong>From:</strong> €{{ price.min }}</p>
+                <p><strong>To:</strong> €{{ price.max }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+            
+            <label for="price">Price per hour (€):</label>
+            <input type="number" name="price" id="price" step="0.01" required><br>
+
+            
+            <!-- Beschikbare Periode -->
+            <label for="available_period_start">Available Period Start:</label>
+            <input type="date" id="available_period_start" name="available_period_start" required>
+                
+            <label for="available_period_end">Available Period End:</label>
+            <input type="date" id="available_period_end" name="available_period_end" required>
+            
+            <label for="available_times">Available Times:</label>
+            <input type="time" id="start_time" name="start_time" required> - 
+            <input type="time" id="end_time" name="end_time" required>
+
+                
+            <!-- Select Multiple Days -->
+            <label for="selected_days">Select Available Days:</label><br>
+            <input type="checkbox" name="days" value="monday"> Monday<br>
+            <input type="checkbox" name="days" value="tuesday"> Tuesday<br>
+            <input type="checkbox" name="days" value="wednesday"> Wednesday<br>
+            <input type="checkbox" name="days" value="thursday"> Thursday<br>
+            <input type="checkbox" name="days" value="friday"> Friday<br>
+            <input type="checkbox" name="days" value="saturday"> Saturday<br>
+            <input type="checkbox" name="days" value="sunday"> Sunday<br>
+            
+            <button type="submit">Submit</button>
+            </form>
+        </form>
+    </main>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
